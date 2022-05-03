@@ -1,0 +1,30 @@
+.error {
+    color: red;
+}
+
+.btn-primary {
+    margin: 0.3em;
+}
+.navbar-brand {
+    margin: 0.3em;
+}
+.text-center {
+    padding: 0.4em;
+}
+.nv{
+
+}
+a:link{
+    color: white;
+}
+a:visited{
+    color: white;
+}
+a:hover{
+    color: midnightblue;
+}
+
+.tnf {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--suppress HtmlUnknownAttribute -->
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <div th:replace="fragments/head :: head"></div>
+    <title>Rekapitulace</title>
+</head>
+<body>
+    <div th:replace="fragments/header :: header"></div>
+    <div class="row justify-content-md-center">
+        <div class="row">
+            <div class="col-3"></div>
+            <h3 class="col tnf">Rekapitulace zadaných údajů:</h3>
+        </div>
+        <div class="row">
+            <div class="col-3"></div>
+            <p class="col-2 text-right lead">Jméno:</p>
+            <p class="col lead" th:text="${userData.name}"></p>
+        </div>
+        <div class="w-100"></div>
+        <div class="row">
+            <div class="col-3"></div>
+            <label class="col-2 text-right lead">Adresa:</label>
+            <p class="col lead" th:text="${userData.street}"></p>
+        </div>
+        <div class="w-100"></div>
+        <div class="row">
+            <div class="col-3"></div>
+            <label class="col-2 text-right lead">Město:</label>
+            <p class="col lead" th:text="${userData.city}"></p>
+        </div>
+        <div class="w-100"></div>
+        <div class="row">
+            <div class="col-3"></div>
+            <label class="col-2 text-right lead">Email:</label>
+            <p class="col lead" th:text="${userData.email}"></p>
+        </div>
+        <div class="w-100"></div>
+        <div class="row">
+            <div class="col-3"></div>
+            <label class="col-2 text-right lead">Heslo:</label>
+            <p class="col lead" th:text="${userData.password}"></p>
+        </div>
+        <div class="row">
+            <div class="col-3"></div>
+            <h3 class="col tnf">Zadané Zboží:</h3>
+        </div>
+        <div class="w-100"></div>
+        <div class="row">
+            <div class="col-3"></div>
+            <label class="col-2 text-right lead">Název Zboží:</label>
+            <p class="col lead" th:text="${userData.stockName}"></p>
+        </div>
+        <div class="w-100"></div>
+        <div class="row">
+            <div class="col-3"></div>
+            <label class="col-2 text-right lead">Počet kusů:</label>
+            <p class="col lead" id="stockCount" th:text="${userData.stockCount}"></p>
+        </div>
+        <div class="w-100"></div>
+        <div class="row">
+            <div class="col-3"></div>
+            <label class="col-2 text-right lead">Cena za 1 kus:</label>
+            <p class="col lead" id="mainPrice" th:text="${userData.stockPrice}"></p>
+        </div>
+        <div class="w-100"></div>
+        <div class="row">
+            <div class="col-3"></div>
+            <label class="col-2 text-right lead">Cena za 1 kus s DPH (21%):</label>
+            <p class="col lead" id="priceDPH"></p>
+        </div>
+        <div class="w-100"></div>
+        <div class="row">
+            <div class="col-3"></div>
+            <label class="col-2 text-right lead">Konečná cena:</label>
+            <p class="col lead" id="priceFinal"></p>
+        </div>
+        <div class="w-100"></div>
+        <div class="row">
+            <div class="col-3"></div>
+            <h3 class="col tnf">Přepočet ceny do cizí měny:</h3>
+        </div>
+        <div class="container"></div>
+        <div class="w-100"></div>
+        <div class="col-md-auto form-group">
+            <button type="button" class="btn btn-primary" onclick="calculate()">Převést na cizí měnu</button>
+            <button type="button" class="btn btn-info" onclick="calculateCZK()">Vrátit na CZK</button>
+        </div>
+    </div>
+
+    <div hidden th:text="${userData.stockPrice}" id="backupPrice"></div>
+    <script type="text/javascript" th:src="@{js/currency.js}"></script>
+    <script type="text/javascript" src="https://data.kurzy.cz/json/meny/b[6]cb[vypsat].js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
